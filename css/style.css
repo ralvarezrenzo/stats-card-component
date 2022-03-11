@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    /* PRIMARY */
+    /* (main background) */
+    --very-dark-blue: hsl(233, 47%, 7%);
+    /* (card background) */
+    --dark-desaturated-blue: hsl(244, 38%, 16%);
+    /* (accent) */
+    --soft-violet: hsl(277, 64%, 61%);
+    /* NEUTRAL */
+    /* (main heading, stats) */
+    --white: hsl(0, 0%, 100%);
+    /* (main paragraph) */
+    --slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+    /* (stat headings) */
+    --slightly-transparent-white-stat: hsla(0, 0%, 100%, 0.6);
+}
+body{
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 130vh;
+    background-color: var(--very-dark-blue);
+}
+.card__imgDesktop{
+    display: none;
+}
+.card{
+    width: 85%;
+    max-width: 400px;
+    background-color: var(--dark-desaturated-blue);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 1s;
+}
+.card:hover{
+    border-radius: 0 1rem 1rem 0;
+}
+.card__imgMobile{
+    width: 100%;
+    position: relative;
+    line-height: 0;
+}
+.card__imgMobile img{
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    height: 100%;
+}
+.card__imgMobile::before,
+.card__imgDesktop::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: hsl(277, 64%, 61%,.4);
+    display: block;
+    border-radius: 1rem 1rem 0 0;
+    transition-duration: 1s;
+}
+.card__imgDesktop:hover::before,
+.card__imgMobile:hover::before{
+    background-color: initial;
+}
+.card__content{
+    width: 85%;
+    padding: 1.8rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card__presentation{
+    text-align: center;
+}
+.card__subtitle{
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition-duration: .6s;
+}
+.card__subtitle span{
+    color: var(--soft-violet);
+}
+.card__text{
+    color: var(--slightly-transparent-white-stat);
+    margin-bottom: 1.5rem;
+    transition-duration: 1s;
+}
+.card__logros{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card__logro{
+    text-align: center;
+    margin-bottom: 1.4rem;
+}
+.card__logro:last-child{
+    margin-bottom: 0;
+}
+.card__logro h3{
+    color: var(--white);
+    margin-bottom: .4rem;
+    transition-duration: .6s;
+}
+.card:hover .card__subtitle,
+.card:hover .card__logro h3{
+    color: var(--soft-violet);
+}
+.card__logro p{
+    text-transform: uppercase;
+    color: var(--slightly-transparent-white-stat);
+    font-family: 'Lexend Deca', sans-serif;
+    transition-duration: 1s;
+}
+.card:hover .card__text,
+.card:hover .card__logro p{
+    color: var(--white);
+}
+footer{
+    background-color: var(--very-dark-blue);
+    color: var(--white);
+    padding: 1rem;
+}
+@media screen and (min-width: 992px){
+    main{
+        height: 100vh;
+    }
+    .card{
+        width: 85%;
+        max-width: 920px;
+        background-color: var(--dark-desaturated-blue);
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: initial;
+        justify-content: space-between;
+    }
+    .card__imgMobile{
+        display: none;
+    }
+    .card__imgDesktop{
+        width: 43%;
+        display: block;
+        position: relative;
+    }
+    .card__imgDesktop img{
+        width: 100%;
+        border-radius: 0 1rem 1rem 0;
+        height: 100%;
+    }
+    .card__imgDesktop::before{
+        border-radius: 0 1rem 1rem 0;
+    }
+    .card__content{
+        width: 55%;
+        padding: 3rem 2.5rem;
+        align-items: flex-start;
+    }
+    .card__presentation{
+        justify-content: start;
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+    .card__logros{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 90%;
+    }
+    .card__logro{
+        margin-bottom: 0;
+        text-align: left;
+    }
+}
